@@ -1,0 +1,13 @@
+.vscode
+
+Debug
+Win32
+CMakeFiles
+
+CMakeCache.txt
+
+*.vcxproj
+*.filters
+*.sln
+*.cmake
+
