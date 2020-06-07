@@ -2,6 +2,6 @@
 
 int main()
 {
-	std::cout<<"siema";
+	std::cout<<"siema z linuksa";
 	std::cin.get();
 }
