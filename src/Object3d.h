@@ -59,7 +59,7 @@ public:
 	inline void set_position(Vec3 set) { position = set; }
 	inline void set_rotation(Vec3 set) { rotation = set; }
 	inline void set_color(Vec3 set)    { color = set; }
-}
+};
 
 
 #endif // OBJECT3D_H
