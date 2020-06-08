@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	render_objects.push_back(&cylinder);
 	render_objects.push_back(&sphere);
 
-
+// kox PL
 
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
