@@ -132,7 +132,7 @@ void Sphere::render()
         glBegin(GL_TRIANGLE_STRIP);
         for (float beta = 0.0; beta < 2.01*PI; beta += PI/gradation)            
         {            
-		    glBegin(GL_POLYGON);
+		   // glBegin(GL_POLYGON);
             x = radius*cos(beta)*sin(alpha);
             y = radius*sin(beta)*sin(alpha);
             z = radius*cos(alpha);
@@ -143,9 +143,9 @@ void Sphere::render()
             z = radius*cos(alpha + PI/gradation);      
 		    glColor3f(this->color.x, this->color.y, this->color.z);      
             glVertex3f(x, y, z);       
-            glVertex3f(x, y, z);       
-            glEnd();
-        }        
+           // glVertex3f(x, y, z);       
+           // glEnd();
+        }  //    
         glEnd();
     }
 }

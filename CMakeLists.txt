@@ -9,6 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(Main src/main.cpp
                     src/math.cpp 
                     src/Object3d.cpp
+                    src/Renderer.cpp
                     src/primitives3d.cpp
                     )
 

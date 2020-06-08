@@ -6,5 +6,6 @@
 #include <vector>
 #include <iostream>
 #include <cmath>
+#include <memory>
 
 
