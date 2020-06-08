@@ -34,4 +34,32 @@ public:
 };
 
 
+class ComplexObject3d
+{
+protected:
+    // x y z coordinates (0, 0, 0) is scene center
+	Vec3 position;
+    // Rotation angles for x y z axes
+    Vec3 rotation;
+    // RGB color
+    Vec3 color;
+
+	std::vector<Object3d*> objects3d;
+
+public:
+
+
+
+	inline Vec3 get_position() { return position; }
+	inline Vec3 get_rotation() { return rotation; }
+	inline Vec3 get_color()    { return color; }
+
+	inline std::vector<Object3d*> get_objects3d() { return objects3d; }
+
+	inline void set_position(Vec3 set) { position = set; }
+	inline void set_rotation(Vec3 set) { rotation = set; }
+	inline void set_color(Vec3 set)    { color = set; }
+}
+
+
 #endif // OBJECT3D_H
