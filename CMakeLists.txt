@@ -11,6 +11,7 @@ add_executable(Main src/main.cpp
                     src/Object3d.cpp
                     src/Renderer.cpp
                     src/primitives3d.cpp
+                    src/Map.cpp
                     )
 
 

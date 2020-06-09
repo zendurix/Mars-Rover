@@ -73,6 +73,8 @@ void Cube::render()
 
 
 void circle(float r, Vec3 coord, Vec3 center_color, Vec3 outline_color) {
+	center_color.x += 0.3;
+	outline_color.y += 0.3;
 	double alpha;
 	glBegin(GL_TRIANGLE_FAN);
 	glColor3d(center_color.x, center_color.y, center_color.z);
