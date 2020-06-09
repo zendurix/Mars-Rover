@@ -54,6 +54,18 @@ void Renderer::handle_input(int key, int a, int b)
 	case GLUT_KEY_F2:
 		Renderer::scale += 0.001;
 		break;
+	case GLUT_KEY_RIGHT:
+		Renderer::camera_rotate_y += 1.0;
+		break;
+	case GLUT_KEY_LEFT:
+		Renderer::camera_rotate_y -= 1.0;
+		break;
+	case GLUT_KEY_UP:
+		Renderer::camera_rotate_x += 1.0;
+		break;
+	case GLUT_KEY_DOWN:
+		Renderer::camera_rotate_x -= 1.0;
+		break;
 	}
   	glutPostRedisplay();
 }
