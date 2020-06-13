@@ -12,54 +12,43 @@ void Cube::render()
 	GLfloat sf[3] = { 10.0f,0.0f,-10.0f };
 	GLfloat sg[3] = { 10.0f,10.0f,-10.0f };
 	GLfloat sh[3] = { 0.0f,10.0f,-10.0f };
-
-	// Sciany skladowe
-	glColor3f(this->color.x, this->color.y, this->color.z);
-	glBegin(GL_POLYGON);
-	glVertex3fv(sa);
-	glVertex3fv(sb);
-	glVertex3fv(sc);
-	glVertex3fv(sd);
-	glEnd();
 	
 	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
-	glVertex3fv(sb);
-	glVertex3fv(sf);
-	glVertex3fv(sg);
-	glVertex3fv(sc);
-	glEnd();
-
-	glColor3f(this->color.x, this->color.y, this->color.z);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sc);
+		glVertex3fv(sd);
+	glEnd();	
 	glBegin(GL_POLYGON);
-	glVertex3fv(sf);
-	glVertex3fv(se);
-	glVertex3fv(sh);
-	glVertex3fv(sg);
+		glVertex3fv(sb);
+		glVertex3fv(sf);
+		glVertex3fv(sg);
+		glVertex3fv(sc);
 	glEnd();
-
-	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
-	glVertex3fv(se);
-	glVertex3fv(sa);
-	glVertex3fv(sd);
-	glVertex3fv(sh);
+		glVertex3fv(sf);
+		glVertex3fv(se);
+		glVertex3fv(sh);
+		glVertex3fv(sg);
 	glEnd();
-
-	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
-	glVertex3fv(sa);
-	glVertex3fv(sb);
-	glVertex3fv(sc);
-	glVertex3fv(sd);
+		glVertex3fv(se);
+		glVertex3fv(sa);
+		glVertex3fv(sd);
+		glVertex3fv(sh);
 	glEnd();
-
-	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
-	glVertex3fv(sa);
-	glVertex3fv(sb);
-	glVertex3fv(sf);
-	glVertex3fv(se);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sc);
+		glVertex3fv(sd);
+	glEnd();
+	glBegin(GL_POLYGON);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sf);
+		glVertex3fv(se);
 	glEnd();
 }
 
@@ -154,7 +143,7 @@ void Sphere::render()
 void Rectangle::render() 
 {
     glBegin(GL_TRIANGLE_STRIP);
-		glColor3f(0.5, 0.0, 0.0);
+		glColor3f(this->color.x, this->color.y, this->color.z); 
 	  	glVertex3d(-this->length/2,  this->height/2, 0.0);
 		glVertex3d(-this->length/2, -this->height/2, 0.0);
 		glVertex3d( this->length/2,  this->height/2, 0.0);
@@ -164,4 +153,53 @@ void Rectangle::render()
 
 
 
-
+void Object8points::render()
+{
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	GLfloat* sa = (this->points[0] + this->position).to_glfloat().data();
+	GLfloat* sb = (this->points[1] + this->position).to_glfloat().data();
+	GLfloat* sc = (this->points[2] + this->position).to_glfloat().data();
+	GLfloat* sd = (this->points[3] + this->position).to_glfloat().data();
+	GLfloat* se = (this->points[4] + this->position).to_glfloat().data();
+	GLfloat* sf = (this->points[5] + this->position).to_glfloat().data();
+	GLfloat* sg = (this->points[6] + this->position).to_glfloat().data();
+	GLfloat* sh = (this->points[7] + this->position).to_glfloat().data();
+	
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sc);
+		glVertex3fv(sd);
+	glEnd();	
+	glBegin(GL_POLYGON);
+		glVertex3fv(sb);
+		glVertex3fv(sf);
+		glVertex3fv(sg);
+		glVertex3fv(sc);
+	glEnd();
+	glBegin(GL_POLYGON);
+		glVertex3fv(sf);
+		glVertex3fv(se);
+		glVertex3fv(sh);
+		glVertex3fv(sg);
+	glEnd();
+	glBegin(GL_POLYGON);
+		glVertex3fv(se);
+		glVertex3fv(sa);
+		glVertex3fv(sd);
+		glVertex3fv(sh);
+	glEnd();
+	glBegin(GL_POLYGON);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sc);
+		glVertex3fv(sd);
+	glEnd();
+	glBegin(GL_POLYGON);
+		glVertex3fv(sa);
+		glVertex3fv(sb);
+		glVertex3fv(sf);
+		glVertex3fv(se);
+	glEnd();
+}

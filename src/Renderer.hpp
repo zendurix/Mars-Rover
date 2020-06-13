@@ -11,7 +11,7 @@ namespace Renderer
 {
     inline std::vector<std::shared_ptr<Object3d>> render_objects;
     inline std::vector<std::shared_ptr<ComplexObject3d>> complex_render_objects;
-    inline float scale = 0.01f;
+    inline float scale = 0.03f;
     inline float camera_rotate_y = 0.0f;
     inline float camera_rotate_x = 180.0f;
 

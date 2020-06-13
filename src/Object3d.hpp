@@ -59,7 +59,7 @@ public:
 	inline void set_position(Vec3 set) 
 	{ 
 		for (auto object : this->objects3d)
-			object->move(set-position);
+			object->move(set - position);
 		this->position = set; 
 	}
 	inline void set_rotation(Vec3 set) 

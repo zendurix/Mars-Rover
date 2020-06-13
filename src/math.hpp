@@ -37,6 +37,8 @@ public:
 	}
 
 	inline static Vec3 zero() { return Vec3(0, 0, 0); }
+
+	inline std::array<GLfloat, 3> to_glfloat() { return {x, y, z}; }
 };
 
 class Vec2

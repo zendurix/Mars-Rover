@@ -7,7 +7,7 @@
 class Map : public ComplexObject3d
 {
 private:
-    static const int SIZE = 1000.0;
+    static const int SIZE = 500.0;
 
 public:
     Map();

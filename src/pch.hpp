@@ -5,9 +5,9 @@
 
 // standard library
 #include <vector>
+#include <array>
 #include <string>
 #include <iostream>
 #include <cmath>
 #include <memory>
-
 
