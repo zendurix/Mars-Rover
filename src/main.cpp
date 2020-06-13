@@ -7,6 +7,7 @@
 
 
 
+
 int main(int argc, char **argv)
 {
 	Map map = Map(Vec3(-100, -100, -0.9), Vec3(0.0, 0.0, 0.0), Vec3(0.0, 0.0, 1.0));

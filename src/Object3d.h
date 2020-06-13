@@ -1,7 +1,6 @@
 #ifndef OBJECT3D_H
 #define OBJECT3D_H
 
-
 #include "math.h"
 
 class Object3d
@@ -11,8 +10,8 @@ protected:
 	Vec3 position;
     // Rotation angles for x y z axes
     Vec3 rotation;
-    // RGB color
-    Vec3 color;
+    // RGB color	
+	Vec3 color;
 
 
 public:

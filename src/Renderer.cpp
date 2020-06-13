@@ -30,8 +30,8 @@ void Renderer::render(void)
 
 void Renderer::render_object(std::shared_ptr<Object3d> object)
 {
-	float rot_y = object->get_rotation().z;
-	float rot_z = object->get_rotation().y;
+	float rot_y = object->get_rotation().y;
+	float rot_z = object->get_rotation().z;
 
 
 	glLoadIdentity();

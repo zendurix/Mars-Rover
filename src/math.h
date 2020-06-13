@@ -16,6 +16,15 @@ public:
 		: x(x), y(y), z(z) {}
 };
 
+class Vec2
+{
+public:
+	float x;
+	float y;
+
+	inline Vec2(float x, float y)
+		: x(x), y(y) {}
+};
 
 
 
