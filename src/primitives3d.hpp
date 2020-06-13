@@ -81,7 +81,7 @@ public:
 	*/
 	inline Object8points(std::array<Vec3, 8> points, Vec3 position, Vec3 rotation, Vec3 color)
 		: points(points),
-		Object3d(Vec3::zero(), rotation, color) {}
+		Object3d(position, rotation, color) {}
 
 	void render() override;
 

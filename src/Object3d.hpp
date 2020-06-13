@@ -23,7 +23,7 @@ public:
 
 	inline void move(Vec3 move_vec)
 	{
-		this->position += move_vec;
+		this->position -= move_vec;
 	}
 
 	inline Vec3 get_position() { return position; }
@@ -52,6 +52,12 @@ public:
 		: position(position), rotation(rotation) {}
 
 	inline std::vector<std::shared_ptr<Object3d>> get_objects3d() { return objects3d; }
+
+	inline void move(Vec3 move_vec)
+	{
+		for (auto object : this->objects3d)
+			object->move(move_vec);
+	}
 
 	inline Vec3 get_position() { return position; }
 	inline Vec3 get_rotation() { return rotation; }

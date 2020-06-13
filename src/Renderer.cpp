@@ -33,13 +33,18 @@ void Renderer::render_object(std::shared_ptr<Object3d> object)
 	float rot_y = object->get_rotation().y;
 	float rot_z = object->get_rotation().z;
 
-	glLoadIdentity();
+	glPushMatrix();
+
+	//glLoadIdentity();
+	glTranslatef(object->get_position().x * scale, object->get_position().y * scale, object->get_position().z * scale);
 	glRotatef(object->get_rotation().x + Renderer::camera_rotate_x, 1, 0, 0);
 	glRotatef(rot_z, 0, 1, 0);
 	glRotatef(rot_y + Renderer::camera_rotate_y, 0, 0, 1);
-	glTranslatef(object->get_position().x * scale, object->get_position().y * scale, object->get_position().z * scale);
+	glTranslatef(-(object->get_position().x * scale), -(object->get_position().y * scale), -(object->get_position().z * scale));
 	glScalef(scale, scale, scale);
 	object->render();
+	
+	glPopMatrix();
 }
 
 

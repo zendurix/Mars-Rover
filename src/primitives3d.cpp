@@ -156,47 +156,54 @@ void Rectangle::render()
 void Object8points::render()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	GLfloat* sa = (this->points[0] + this->position).to_glfloat().data();
-	GLfloat* sb = (this->points[1] + this->position).to_glfloat().data();
-	GLfloat* sc = (this->points[2] + this->position).to_glfloat().data();
-	GLfloat* sd = (this->points[3] + this->position).to_glfloat().data();
-	GLfloat* se = (this->points[4] + this->position).to_glfloat().data();
-	GLfloat* sf = (this->points[5] + this->position).to_glfloat().data();
-	GLfloat* sg = (this->points[6] + this->position).to_glfloat().data();
-	GLfloat* sh = (this->points[7] + this->position).to_glfloat().data();
+	GLfloat sa[3] = { this->points[0].x, this->points[0].y, this->points[0].z };
+	GLfloat sb[3] = { this->points[1].x, this->points[1].y, this->points[1].z };
+	GLfloat sc[3] = { this->points[2].x, this->points[2].y, this->points[2].z };
+	GLfloat sd[3] = { this->points[3].x, this->points[3].y, this->points[3].z };
+	GLfloat se[3] = { this->points[4].x, this->points[4].y, this->points[4].z };
+	GLfloat sf[3] = { this->points[5].x, this->points[5].y, this->points[5].z };
+	GLfloat sg[3] = { this->points[6].x, this->points[6].y, this->points[6].z };
+	GLfloat sh[3] = { this->points[7].x, this->points[7].y, this->points[7].z };
 	
-	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
+		glColor3f(this->color.x, this->color.y, this->color.z);
 		glVertex3fv(sa);
 		glVertex3fv(sb);
 		glVertex3fv(sc);
 		glVertex3fv(sd);
 	glEnd();	
 	glBegin(GL_POLYGON);
+		glColor3f(this->color.x + 0.3, this->color.y + 0.5, this->color.z);
 		glVertex3fv(sb);
 		glVertex3fv(sf);
 		glVertex3fv(sg);
 		glVertex3fv(sc);
 	glEnd();
 	glBegin(GL_POLYGON);
+		glColor3f(this->color.x, this->color.y + 0.3, this->color.z);
 		glVertex3fv(sf);
 		glVertex3fv(se);
 		glVertex3fv(sh);
 		glVertex3fv(sg);
 	glEnd();
 	glBegin(GL_POLYGON);
+
+	glColor3f(this->color.x + 0.3, this->color.y + 0.3, this->color.z);
 		glVertex3fv(se);
 		glVertex3fv(sa);
 		glVertex3fv(sd);
 		glVertex3fv(sh);
 	glEnd();
 	glBegin(GL_POLYGON);
+		glColor3f(this->color.x, this->color.y + 0.3, this->color.z + 0.3);
 		glVertex3fv(sa);
 		glVertex3fv(sb);
 		glVertex3fv(sc);
 		glVertex3fv(sd);
 	glEnd();
 	glBegin(GL_POLYGON);
+
+	glColor3f(this->color.x + 0.3, this->color.y + 0.3, this->color.z + 0.3);
 		glVertex3fv(sa);
 		glVertex3fv(sb);
 		glVertex3fv(sf);
