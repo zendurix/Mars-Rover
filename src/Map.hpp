@@ -1,8 +1,8 @@
-#ifndef MAP_H
-#define MAP_H
+#ifndef MAP_HPP
+#define MAP_HPP
 
-#include "Object3d.h"
-#include "primitives3d.h"
+#include "Object3d.hpp"
+#include "primitives3d.hpp"
 
 class Map : public ComplexObject3d
 {
@@ -14,4 +14,4 @@ public:
 
 };
 
-#endif // MAP_H
+#endif // MAP_HPP

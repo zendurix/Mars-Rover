@@ -1,7 +1,7 @@
-#ifndef OBJECT3D_H
-#define OBJECT3D_H
+#ifndef OBJECT3D_HPP
+#define OBJECT3D_HPP
 
-#include "math.h"
+#include "math.hpp"
 
 class Object3d
 {
@@ -72,4 +72,4 @@ public:
 };
 
 
-#endif // OBJECT3D_H
+#endif // OBJECT3D_HPP

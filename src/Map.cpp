@@ -1,9 +1,9 @@
-#include "Map.h"
-#include "pch.h"
+#include "Map.hpp"
+#include "pch.hpp"
 
-#include "math.h"
+#include "math.hpp"
 
-#include "primitives3d.h"
+#include "primitives3d.hpp"
 
 Map::Map()
     : ComplexObject3d(Vec3::zero(), Vec3::zero())

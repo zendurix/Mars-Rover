@@ -1,7 +1,7 @@
-#include "Renderer.h"
-#include "pch.h"
+#include "Renderer.hpp"
+#include "pch.hpp"
 
-#include "Object3d.h"
+#include "Object3d.hpp"
 
 
 void Renderer::render(void)

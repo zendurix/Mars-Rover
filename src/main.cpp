@@ -1,9 +1,9 @@
-#include "pch.h"
+#include "pch.hpp"
 
-#include "primitives3d.h"
-#include "Renderer.h"
-#include "math.h"
-#include "Map.h"
+#include "primitives3d.hpp"
+#include "Renderer.hpp"
+#include "math.hpp"
+#include "Map.hpp"
 
 
 

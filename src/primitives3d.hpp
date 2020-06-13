@@ -1,8 +1,8 @@
-#ifndef PRIMITIVES3D_H
-#define PRIMITIVES3D_H
+#ifndef PRIMITIVES3D_HPP
+#define PRIMITIVES3D_HPP
 
 
-#include "Object3d.h"
+#include "Object3d.hpp"
 
 class Vec3;
 
@@ -63,4 +63,4 @@ public:
 };
 
 
-#endif // PRIMITIVES3D_H
+#endif // PRIMITIVES3D_HPP

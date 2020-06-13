@@ -1,5 +1,5 @@
-#ifndef RENDERER_H
-#define RENDERER_H
+#ifndef RENDERER_HPP
+#define RENDERER_HPP
 
 class Object3d;
 class ComplexObject3d;
@@ -20,4 +20,4 @@ namespace Renderer
     void render_object(std::shared_ptr<Object3d> object);
 }
 
-#endif // RENDERER_H
+#endif // RENDERER_HPP

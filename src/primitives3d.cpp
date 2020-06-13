@@ -1,5 +1,5 @@
-#include "primitives3d.h"
-#include "pch.h"
+#include "primitives3d.hpp"
+#include "pch.hpp"
 
 void Cube::render()
 {

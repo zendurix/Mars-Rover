@@ -1,5 +1,5 @@
-#ifndef MATH_H
-#define MATH_H
+#ifndef MATH_HPP
+#define MATH_HPP
 
 
 const float PI = 3.14159265f;
@@ -62,4 +62,4 @@ inline void normalize_rgb(Vec3* rgb)
 
 
 
-#endif // MATH_H
+#endif // MATH_HPP
