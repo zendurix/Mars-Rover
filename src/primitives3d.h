@@ -48,6 +48,19 @@ public:
 	void render() override;
 };
 
+class Rectangle : public Object3d
+{
+private:
+	float height;
+	float length;
+
+public:
+    inline Rectangle(float height, float length, Vec3 position, Vec3 rotation, Vec3 color) 
+    : height(height), length(length), 
+	Object3d(position, rotation, color) {}
+
+    void render() override;
+};
 
 
 #endif // PRIMITIVES3D_H

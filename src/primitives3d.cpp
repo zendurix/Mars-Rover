@@ -4,65 +4,63 @@
 void Cube::render()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	{
-		GLfloat sa[3] = { 0.0f,0.0f,0.0f };
-		GLfloat sb[3] = { 10.0f,0.0f,0.0f };
-		GLfloat sc[3] = { 10.0f,10.0f,0.0f };
-		GLfloat sd[3] = { 0.0f,10.0f,0.0f };
-		GLfloat se[3] = { 0.0f,0.0f,-10.0f };
-		GLfloat sf[3] = { 10.0f,0.0f,-10.0f };
-		GLfloat sg[3] = { 10.0f,10.0f,-10.0f };
-		GLfloat sh[3] = { 0.0f,10.0f,-10.0f };
+	GLfloat sa[3] = { 0.0f,0.0f,0.0f };
+	GLfloat sb[3] = { 10.0f,0.0f,0.0f };
+	GLfloat sc[3] = { 10.0f,10.0f,0.0f };
+	GLfloat sd[3] = { 0.0f,10.0f,0.0f };
+	GLfloat se[3] = { 0.0f,0.0f,-10.0f };
+	GLfloat sf[3] = { 10.0f,0.0f,-10.0f };
+	GLfloat sg[3] = { 10.0f,10.0f,-10.0f };
+	GLfloat sh[3] = { 0.0f,10.0f,-10.0f };
 
-		// Sciany skladowe
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(sa);
-		glVertex3fv(sb);
-		glVertex3fv(sc);
-		glVertex3fv(sd);
-		glEnd();
-		
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(sb);
-		glVertex3fv(sf);
-		glVertex3fv(sg);
-		glVertex3fv(sc);
-		glEnd();
+	// Sciany skladowe
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sa);
+	glVertex3fv(sb);
+	glVertex3fv(sc);
+	glVertex3fv(sd);
+	glEnd();
+	
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sb);
+	glVertex3fv(sf);
+	glVertex3fv(sg);
+	glVertex3fv(sc);
+	glEnd();
 
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(sf);
-		glVertex3fv(se);
-		glVertex3fv(sh);
-		glVertex3fv(sg);
-		glEnd();
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sf);
+	glVertex3fv(se);
+	glVertex3fv(sh);
+	glVertex3fv(sg);
+	glEnd();
 
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(se);
-		glVertex3fv(sa);
-		glVertex3fv(sd);
-		glVertex3fv(sh);
-		glEnd();
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(se);
+	glVertex3fv(sa);
+	glVertex3fv(sd);
+	glVertex3fv(sh);
+	glEnd();
 
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(sa);
-		glVertex3fv(sb);
-		glVertex3fv(sc);
-		glVertex3fv(sd);
-		glEnd();
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sa);
+	glVertex3fv(sb);
+	glVertex3fv(sc);
+	glVertex3fv(sd);
+	glEnd();
 
-		glColor3f(this->color.x, this->color.y, this->color.z);
-		glBegin(GL_POLYGON);
-		glVertex3fv(sa);
-		glVertex3fv(sb);
-		glVertex3fv(sf);
-		glVertex3fv(se);
-		glEnd();
-	}
+	glColor3f(this->color.x, this->color.y, this->color.z);
+	glBegin(GL_POLYGON);
+	glVertex3fv(sa);
+	glVertex3fv(sb);
+	glVertex3fv(sf);
+	glVertex3fv(se);
+	glEnd();
 }
 
 
@@ -132,28 +130,37 @@ void Sphere::render()
     for (float alpha = 0.0; alpha < PI; alpha += PI/gradation)
     {        
         glBegin(GL_TRIANGLE_STRIP);
-        for (float beta = 0.0; beta < 2.01*PI; beta += PI/gradation)            
-        {            
-		   // glBegin(GL_POLYGON);
-            x = radius*cos(beta)*sin(alpha);
-            y = radius*sin(beta)*sin(alpha);
-            z = radius*cos(alpha);
-		    glColor3f(this->color.x, this->color.y, this->color.z);
-            glVertex3f(x, y, z);
-            x = radius*cos(beta)*sin(alpha + PI/gradation);
-            y = radius*sin(beta)*sin(alpha + PI/gradation);
-            z = radius*cos(alpha + PI/gradation);      
-		    glColor3f(this->color.x, this->color.y, this->color.z);      
-            glVertex3f(x, y, z);       
-           // glVertex3f(x, y, z);       
-           // glEnd();
-        }  //    
+			for (float beta = 0.0; beta < 2.01*PI; beta += PI/gradation)            
+			{            
+			// glBegin(GL_POLYGON);
+				x = radius*cos(beta)*sin(alpha);
+				y = radius*sin(beta)*sin(alpha);
+				z = radius*cos(alpha);
+				glColor3f(this->color.x, this->color.y, this->color.z);
+				glVertex3f(x, y, z);
+				x = radius*cos(beta)*sin(alpha + PI/gradation);
+				y = radius*sin(beta)*sin(alpha + PI/gradation);
+				z = radius*cos(alpha + PI/gradation);      
+				glColor3f(this->color.x, this->color.y, this->color.z);      
+				glVertex3f(x, y, z);       
+			// glVertex3f(x, y, z);       
+			// glEnd();
+			}     
         glEnd();
     }
 }
 
 
-
+void Rectangle::render() 
+{
+    glBegin(GL_TRIANGLE_STRIP);
+		glColor3f(0.5, 0.0, 0.0);
+	  	glVertex3d(-this->length/2,  this->height/2, 0.0);
+		glVertex3d(-this->length/2, -this->height/2, 0.0);
+		glVertex3d( this->length/2,  this->height/2, 0.0);
+		glVertex3d( this->length/2, -this->height/2, 0.0);
+    glEnd();
+}
 
 
 

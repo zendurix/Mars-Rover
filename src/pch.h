@@ -1,6 +1,6 @@
 // Precompiled headers
 
-// OpenGL and glew
+// OpenGL and glut
 #include <GL/glut.h>
 
 // standard library

@@ -33,7 +33,6 @@ void Renderer::render_object(std::shared_ptr<Object3d> object)
 	float rot_y = object->get_rotation().y;
 	float rot_z = object->get_rotation().z;
 
-
 	glLoadIdentity();
 	glRotatef(object->get_rotation().x + Renderer::camera_rotate_x, 1, 0, 0);
 	glRotatef(rot_z, 0, 1, 0);
@@ -55,16 +54,16 @@ void Renderer::handle_input(int key, int a, int b)
 		Renderer::scale += 0.001;
 		break;
 	case GLUT_KEY_RIGHT:
-		Renderer::camera_rotate_y += 1.0;
+		Renderer::camera_rotate_y += 5.0;
 		break;
 	case GLUT_KEY_LEFT:
-		Renderer::camera_rotate_y -= 1.0;
+		Renderer::camera_rotate_y -= 5.0;
 		break;
 	case GLUT_KEY_UP:
-		Renderer::camera_rotate_x += 1.0;
+		Renderer::camera_rotate_x += 5.0;
 		break;
 	case GLUT_KEY_DOWN:
-		Renderer::camera_rotate_x -= 1.0;
+		Renderer::camera_rotate_x -= 5.0;
 		break;
 	}
   	glutPostRedisplay();

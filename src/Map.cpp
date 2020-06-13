@@ -1,26 +1,21 @@
 #include "Map.h"
 #include "pch.h"
 
+#include "math.h"
 
-void Map::render() 
+#include "primitives3d.h"
+
+Map::Map()
+    : ComplexObject3d(Vec3::zero(), Vec3::zero())
 {
-    float xs = 200.0f;
-    float ys = 200.0f;
-    float size = 100.0f;
-    float xPos, yPos, H;
-    for (int j = 0; j < ys; j++)
+    const int SQUARE_SIZE = 19;
+    for (int i = 0; i < SIZE; i += SQUARE_SIZE)
     {
-      yPos = size * j;
-      for (int i = 0; i < xs; i++)
-      {
-        xPos = size * i;
-        glBegin(GL_TRIANGLE_FAN);
-        glColor3f(0.7, 0.1 + 0.001 * (i % 100), 0.1 + 0.01 * (j % 10));
-        glVertex3d((xPos + 0), (yPos + 0), 0);
-        glVertex3d((xPos + size), (yPos + 0), 0);
-        glVertex3d((xPos + size), (yPos + size), 0);
-        glVertex3d((xPos + 0), (yPos + size), 0);
-        glEnd();
-      }
+        for (int j = 0; j < SIZE; j += SQUARE_SIZE)
+        {
+            Vec3 col = Vec3(1.0, 0.0, 1.0);
+            Rectangle rec = Rectangle(SQUARE_SIZE, SQUARE_SIZE, Vec3(i, j, 0), Vec3::zero(), col);
+            this->objects3d.push_back(std::make_shared<Rectangle>(rec));
+        }
     }
 }
