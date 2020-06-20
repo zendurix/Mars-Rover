@@ -17,17 +17,17 @@ public:
 
 	inline Vec3 operator + (Vec3 vec)
 	{
-		return Vec3(this->x += vec.x, this->y += vec.y, this->z += vec.z);
+		return Vec3(this->x + vec.x, this->y + vec.y, this->z + vec.z);
 	}
 	inline Vec3 operator - (Vec3 vec)
 	{
-		return Vec3(this->x -= vec.x, this->y -= vec.y, this->z -= vec.z);
+		return Vec3(this->x - vec.x, this->y - vec.y, this->z - vec.z);
 	}
 	inline void operator += (Vec3 vec)
 	{
 		this->x += vec.x;
 		this->y += vec.y;
-		this->z =- vec.z;
+		this->z += vec.z;
 	}
 	inline void operator -= (Vec3 vec)
 	{
@@ -55,11 +55,12 @@ public:
 
 
 
-inline void normalize_rgb(Vec3* rgb)
+inline Vec3 normalize_rgb(Vec3 rgb)
 {
-    rgb->x /= 255.0;
-    rgb->y /= 255.0;
-    rgb->z /= 255.0;
+    rgb.x /= 255.0;
+    rgb.y /= 255.0;
+    rgb.z /= 255.0;
+	return rgb;
 }
 
 

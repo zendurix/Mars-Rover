@@ -8,13 +8,13 @@ std::array<Vec3, 8> body_points();
 Rover::Rover()
     : ComplexObject3d(Vec3::zero(), Vec3::zero())
 {
-    Cylinder front_axle = Cylinder(16.0, 1.0, Vec3(20.0, 0.0, 4.0), Vec3(0, 0, 90), Vec3(0.1, 0.1, 0.1));
+    Cylinder front_axle = Cylinder(160.0, 1.0, Vec3(20.0, 0.0, 4.0), Vec3(90, 0, 0), Vec3(0.1, 0.1, 0.1));
     Cylinder front_left_wheel =  Cylinder(0.5, 4.0, Vec3(20.0, 2.0, -4.0), Vec3(0, 0, 90), Vec3(0.1, 0.1, 0.4));
     Cylinder front_right_wheel = Cylinder(0.5, 4.0, Vec3(20.0, 2.0, 12.0), Vec3(0, 0, 90), Vec3(0.1, 0.1, 0.4));
 
 
 
-    Object8points body = Object8points(body_points(), Vec3(1.0, 6.0, 5.0), Vec3(0.0, 0.0, 0.0), Vec3(1.0, 0.0, 0.0));
+    Object8points body = Object8points(body_points(), Vec3(20.0, 0.0, 5.0), Vec3(0.0, 0.0, 0.0), Vec3(1.0, 0.0, 0.0));
 
 
 

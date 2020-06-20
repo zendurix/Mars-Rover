@@ -13,6 +13,7 @@ add_executable(Rover src/main.cpp
                     src/primitives3d.cpp
                     src/Map.cpp
                     src/Rover.cpp
+                    src/Tree.cpp
                     )
 
 
