@@ -95,7 +95,7 @@ void Cylinder::render()
 			 i <= this->height/ 2.0;
 			 i += 0.5, j++)
 		{
-		glColor3f(this->color.x, this->color.y, this->color.z);
+			glColor3f(this->color.x, this->color.y, this->color.z);
 			glVertex3d(this->radius * cos(alpha), this->radius * sin(alpha), i);
 			glVertex3d(this->radius * cos(alpha + PI / 64), this->radius * sin(alpha + PI / 64), i);
 		}
@@ -187,7 +187,6 @@ void Object8points::render()
 		glVertex3fv(sg);
 	glEnd();
 	glBegin(GL_POLYGON);
-
 	glColor3f(this->color.x + 0.3, this->color.y + 0.3, this->color.z);
 		glVertex3fv(se);
 		glVertex3fv(sa);
@@ -202,7 +201,6 @@ void Object8points::render()
 		glVertex3fv(sd);
 	glEnd();
 	glBegin(GL_POLYGON);
-
 	glColor3f(this->color.x + 0.3, this->color.y + 0.3, this->color.z + 0.3);
 		glVertex3fv(sa);
 		glVertex3fv(sb);
