@@ -13,11 +13,10 @@ void Renderer::render(void)
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 		
+	glPushMatrix();
+	glRotatef(Renderer::camera_rotate_x, 1, 0, 0);
+	glRotatef(Renderer::camera_rotate_y, 0, 0, 1);
 	render_map();
-	for (auto object : Renderer::render_objects)
-	{			
-		render_object(object);
-	}
 
 	for (auto complex_object : Renderer::complex_render_objects)
 	{
@@ -27,41 +26,30 @@ void Renderer::render(void)
 				glScalef(scale, scale, scale);
 				glTranslatef(0, 0, 0);
 				glRotatef(complex_object->get_rotation().x, 1, 0, 0);
-				glRotatef(complex_object->get_rotation().y + Renderer::camera_rotate_y, 0, 0, 1);
+				glRotatef(complex_object->get_rotation().y , 0, 0, 1);
 				glRotatef(complex_object->get_rotation().z, 0, 1, 0);
 				glTranslatef(0, 0, 0);
 				for (auto object : complex_object->get_objects3d())
-				{			
+				{		
+					glPushMatrix();	
+					glPushMatrix();
+					glTranslatef(0, 0, 0);
+					glRotatef(object->get_rotation().x, 1, 0, 0);
+					glRotatef(object->get_rotation().y , 0, 0, 1);
+					glRotatef(object->get_rotation().z, 0, 1, 0);
+					glTranslatef(object->get_position().x * scale, object->get_position().y * scale, object->get_position().z * scale);
 					object->render();
+					glPopMatrix();
+					glPopMatrix();
 				}
 			glPopMatrix();
 		glPopMatrix();
 	}
-	
+	glPopMatrix();
 	glFlush();
 	glutSwapBuffers();
 }
 
-void Renderer::render_object(std::shared_ptr<Object3d> object)
-{
-	float rot_x = object->get_rotation().x;
-	float rot_y = object->get_rotation().y;
-	float rot_z = object->get_rotation().z;
-
-	glPushMatrix();
-	glLoadIdentity();
-		glTranslatef(0, 0, 0);
-		
-		glRotatef(rot_x + Renderer::camera_rotate_x, 1, 0, 0);
-		glRotatef(rot_y  + Renderer::camera_rotate_y, 0, 0, 1);
-		glRotatef(rot_z, 0, 1, 0);
-		glTranslatef(0, 0,0 );
-
-		//glTranslatef((object->get_position().x * scale), (object->get_position().y * scale), (object->get_position().z * scale));
-		glScalef(scale, scale, scale);
-		object->render();
-	glPopMatrix();
-}
 
 void Renderer::render_map()
 {
@@ -73,9 +61,9 @@ void Renderer::render_map()
 		glPushMatrix();
 
 		//glLoadIdentity();
-		glRotatef(object->get_rotation().x + Renderer::camera_rotate_x, 1, 0, 0);
+		glRotatef(object->get_rotation().x , 1, 0, 0);
 		glRotatef(rot_z, 0, 1, 0);
-		glRotatef(rot_y + Renderer::camera_rotate_y, 0, 0, 1);
+		glRotatef(rot_y , 0, 0, 1);
 		glTranslatef(object->get_position().x * scale, object->get_position().y * scale, object->get_position().z * scale);
 		glScalef(scale, scale, scale);
 		object->render();
@@ -119,16 +107,16 @@ void Renderer::handle_input(int key, int a, int b)
 
 	case GLUT_KEY_UP:				
 		Renderer::rover->set_position( Vec3(
-			Renderer::rover->get_position().x + 2 * cos((rover->get_rotation().x * PI) / 180) ,
-			Renderer::rover->get_position().y ,
-			Renderer::rover->get_position().z + 2 * sin(-(rover->get_rotation().y * PI) / 180) 
+			Renderer::rover->get_position().x - 2 * cos(((rover->get_rotation().y + camera_rotate_y) * PI) / 180) ,
+			Renderer::rover->get_position().y + 2 * sin(-((rover->get_rotation().y + camera_rotate_y)  * PI) / 180) ,
+			Renderer::rover->get_position().z 
 		));
 		break;
 	case GLUT_KEY_DOWN:
 		Renderer::rover->set_position( Vec3(
-			Renderer::rover->get_position().x - 1 * cos((rover->get_rotation().x * PI) / 180) ,
-			Renderer::rover->get_position().y ,
-			Renderer::rover->get_position().z - 1 * sin(-(rover->get_rotation().y * PI) / 180) 
+			Renderer::rover->get_position().x + 1 * cos(((rover->get_rotation().y + camera_rotate_y)  * PI) / 180) ,
+			Renderer::rover->get_position().y - 1 * sin(-((rover->get_rotation().y + camera_rotate_y)  * PI) / 180) ,
+			Renderer::rover->get_position().z 
 		));
 		break;
 

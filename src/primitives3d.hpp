@@ -12,9 +12,9 @@ class Cube : public Object3d
 private:
 	float length;
 public:
-	inline Cube(float length, Vec3 position, Vec3 rotation, Vec3 color, bool movable = false)
+	inline Cube(float length, Vec3 position, Vec3 rotation, Vec3 color)
     : length(length),
-    Object3d(position, rotation, color, movable) {}
+    Object3d(position, rotation, color) {}
 
 	void render() override;
 };
@@ -27,9 +27,9 @@ private:
 	float height;
 	float radius;
 public:
-	inline Cylinder(float height, float radius, Vec3 position, Vec3 rotation, Vec3 color, bool movable = false)
+	inline Cylinder(float height, float radius, Vec3 position, Vec3 rotation, Vec3 color)
     : height(height), radius(radius),
-    Object3d(position, rotation, color, movable) {}
+    Object3d(position, rotation, color) {}
 
 	void render() override;
 };
@@ -41,9 +41,9 @@ class Sphere : public Object3d
 private:
 	float radius;
 public:
-	inline Sphere(float radius, Vec3 position, Vec3 rotation, Vec3 color, bool movable = false)
+	inline Sphere(float radius, Vec3 position, Vec3 rotation, Vec3 color)
     : radius(radius),
-    Object3d(position, rotation, color, movable) {}
+    Object3d(position, rotation, color) {}
 
 	void render() override;
 };
@@ -57,9 +57,9 @@ private:
 	float length;
 
 public:
-    inline Rectangle(float height, float length, Vec3 position, Vec3 rotation, Vec3 color, bool movable = false)
+    inline Rectangle(float height, float length, Vec3 position, Vec3 rotation, Vec3 color)
     : height(height), length(length), 
-	Object3d(position, rotation, color, movable) {}
+	Object3d(position, rotation, color) {}
 
     void render() override;
 };
@@ -79,9 +79,9 @@ public:
 	*	|     |		|	  |
 	*	0-----1		4-----5
 	*/
-	inline Object8points(std::array<Vec3, 8> points, Vec3 position, Vec3 rotation, Vec3 color, bool movable = false)
+	inline Object8points(std::array<Vec3, 8> points, Vec3 position, Vec3 rotation, Vec3 color)
 		: points(points),
-		Object3d(position, rotation, color, movable) {}
+		Object3d(position, rotation, color) {}
 
 	void render() override;
 

@@ -13,7 +13,6 @@ namespace Renderer
 {
     inline std::shared_ptr<Map> map = nullptr;
     inline std::shared_ptr<Rover> rover = nullptr;
-    inline std::vector<std::shared_ptr<Object3d>> render_objects;
     inline std::vector<std::shared_ptr<ComplexObject3d>> complex_render_objects;
     inline float scale = 0.01f;
     inline float camera_rotate_y = 0.0f;
@@ -21,7 +20,6 @@ namespace Renderer
 
     void render(void);
     void handle_input(int key, int a, int b);
-    void render_object(std::shared_ptr<Object3d> object);
     void render_map();
 }
 

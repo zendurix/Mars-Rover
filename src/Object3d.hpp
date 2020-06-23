@@ -6,8 +6,6 @@
 class Object3d
 {
 protected:
-	bool movable = false;
-
     // x y z coordinates (0, 0, 0) is scene center
 	Vec3 position;
     // Rotation angles for x y z axes
@@ -15,10 +13,9 @@ protected:
     // RGB color	
 	Vec3 color;
 
-
 public:
-	inline Object3d(Vec3 position, Vec3 rotation, Vec3 color, bool movable = false) 
-    : position(position), rotation(rotation), color(color), movable(movable) {};
+	inline Object3d(Vec3 position, Vec3 rotation, Vec3 color) 
+    : position(position), rotation(rotation), color(color) {};
 
     // Overload this to write specific render function for each 3d object
 	virtual void render() = 0;
@@ -27,15 +24,10 @@ public:
 	{
 		this->position -= move_vec;
 	}
-	inline void rotate(Vec3 rotate_vec)
-	{
-		rotation += rotate_vec;
-	}
 
 	inline Vec3 get_position() { return position; }
 	inline Vec3 get_rotation() { return rotation; }
 	inline Vec3 get_color()    { return color; }
-	inline bool get_movable()  { return movable; }
 
 	inline void set_position(Vec3 set) { position = set; }
 	inline void set_rotation(Vec3 set) { rotation = set; }
@@ -60,17 +52,6 @@ public:
 
 	inline std::vector<std::shared_ptr<Object3d>> get_objects3d() { return objects3d; }
 
-	inline void move(Vec3 move_vec)
-	{
-		for (auto object : this->objects3d)
-			object->move(move_vec);
-	}
-	inline void rotate(Vec3 rotation_vec)
-	{
-		for (auto object : this->objects3d)
-			object->rotate(rotation_vec);
-	}
-
 	inline Vec3 get_position() { return position; }
 	inline Vec3 get_rotation() { return rotation; }
 
@@ -80,22 +61,9 @@ public:
 			object->move(set - position);
 		this->position = set; 
 	}
-	inline void set_rotation_all(Vec3 set) 
-	{ 
-		this->rotation = set; 
-		for (auto object : this->objects3d)
-			object->set_rotation(rotation);
-	}
 
-
-	inline void set_position(Vec3 set) 
-	{ 
-		this->position = set; 
-	}
-	inline void set_rotation(Vec3 set) 
-	{ 
-		this->rotation = set; 
-	}
+	inline void set_position(Vec3 set) 	{ this->position = set; }
+	inline void set_rotation(Vec3 set) 	{ this->rotation = set; }
 
 };
 

@@ -4,14 +4,14 @@
 void Cube::render()
 {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-	GLfloat sa[3] = { 0.0f,0.0f,0.0f };
-	GLfloat sb[3] = { 10.0f,0.0f,0.0f };
-	GLfloat sc[3] = { 10.0f,10.0f,0.0f };
-	GLfloat sd[3] = { 0.0f,10.0f,0.0f };
-	GLfloat se[3] = { 0.0f,0.0f,-10.0f };
-	GLfloat sf[3] = { 10.0f,0.0f,-10.0f };
-	GLfloat sg[3] = { 10.0f,10.0f,-10.0f };
-	GLfloat sh[3] = { 0.0f,10.0f,-10.0f };
+	GLfloat sa[3] = { position.x,          position.y,          position.z };
+	GLfloat sb[3] = { position.x + length, position.y,          position.z };
+	GLfloat sc[3] = { position.x + length, position.y + length, position.z };
+	GLfloat sd[3] = { position.x,          position.y + length, position.z };
+	GLfloat se[3] = { position.x,          position.y ,         position.z - length };
+	GLfloat sf[3] = { position.x + length, position.y,          position.z - length };
+	GLfloat sg[3] = { position.x + length, position.y + length, position.z - length };
+	GLfloat sh[3] = { position.x,          position.y + length, position.z - length };
 	
 	glColor3f(this->color.x, this->color.y, this->color.z);
 	glBegin(GL_POLYGON);
@@ -71,7 +71,7 @@ void circle(float r, Vec3 coord, Vec3 center_color, Vec3 outline_color) {
 	{
 		alpha = (coord.z <= 0.0) ? i : -i;
 		glColor3d(outline_color.x, outline_color.y, outline_color.z);
-		glVertex3d(r * sin(alpha), r * cos(alpha), coord.z);
+		glVertex3d(r * sin(alpha) + coord.x, r * cos(alpha) + coord.y, coord.z);
 	}
 	glEnd();
 }
@@ -82,10 +82,10 @@ void Cylinder::render()
 	double alpha;
 
 	// Lower base
-	circle(this->radius, Vec3(0.0, 0.0, -this->height / 2.0), this->color, this->color);
+	circle(this->radius, Vec3(0.0 + position.x, 0.0 + position.y, -this->height / 2.0+  position.z), this->color, this->color);
 	
 	// Upeer Base
-	circle(this->radius, Vec3(0.0, 0.0, this->height / 2.0), this->color, this->color);	
+	circle(this->radius, Vec3(0.0 + position.x, 0.0 + position.y, this->height / 2.0 + + position.z), this->color, this->color);	
 
 	// Side wall
 	for (alpha = 0.0; alpha <= 2.0 * PI; alpha += PI / 64.0)
@@ -96,8 +96,8 @@ void Cylinder::render()
 			 i += 0.5, j++)
 		{
 			glColor3f(this->color.x, this->color.y, this->color.z);
-			glVertex3d(this->radius * cos(alpha), this->radius * sin(alpha), i);
-			glVertex3d(this->radius * cos(alpha + PI / 64), this->radius * sin(alpha + PI / 64), i);
+			glVertex3d(this->radius * cos(alpha) + position.x, this->radius * sin(alpha) + position.y, i + position.z);
+			glVertex3d(this->radius * cos(alpha + PI / 64) + position.x, this->radius * sin(alpha + PI / 64) + position.y, i + position.z);
 		}
 		glEnd();
 	}
@@ -126,12 +126,12 @@ void Sphere::render()
 				y = radius*sin(beta)*sin(alpha);
 				z = radius*cos(alpha);
 				glColor3f(this->color.x, this->color.y, this->color.z);
-				glVertex3f(x, y, z);
+				glVertex3f(x + position.x, y + position.y, z + position.z);
 				x = radius*cos(beta)*sin(alpha + PI/gradation);
 				y = radius*sin(beta)*sin(alpha + PI/gradation);
 				z = radius*cos(alpha + PI/gradation);      
 				glColor3f(this->color.x, this->color.y, this->color.z);      
-				glVertex3f(x, y, z);       
+				glVertex3f(x + position.x, y + position.y, z + position.z);
 			// glVertex3f(x, y, z);       
 			// glEnd();
 			}     
